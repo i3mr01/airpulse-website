@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+
+  --color-airpulse-950: #0a0a12;
+  --color-airpulse-900: #0f0f18;
+  --color-airpulse-800: #151521;
+  --color-airpulse-700: #1a1a2a;
+  --color-airpulse-500: #8b5cf6;
+  --color-airpulse-400: #a78bfa;
+  --color-airpulse-300: #c4b5fd;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  background: #0a0a0f;
+  color: #e5e7eb;
+  font-family: var(--font-geist-sans), system-ui, -apple-system, BlinkMacSystemFont,
+    "SF Pro Text", "Segoe UI", sans-serif;
+}
+
+::selection {
+  background: rgba(167, 139, 250, 0.4);
+  color: #f9fafb;
+}
+
+.airpulse-shell {
+  min-height: 100vh;
+  color: #e5e7eb;
+  background:
+    radial-gradient(ellipse at top, #2d1b4e 0, #0a0a12 50%, #0a0a12 100%),
+    linear-gradient(180deg, rgba(139, 92, 246, 0.03) 0%, transparent 50%);
+}
+
+.glass-surface {
+  @apply border border-white/5 bg-white/5 backdrop-blur-xl;
+}
+
+.hero-gradient {
+  background:
+    radial-gradient(circle at top left, rgba(129, 140, 248, 0.35), transparent 55%),
+    radial-gradient(circle at top right, rgba(59, 130, 246, 0.25), transparent 55%),
+    radial-gradient(circle at bottom, rgba(10, 10, 15, 0.9), #0a0a0f 70%);
+}
+
+.soft-shadow {
+  box-shadow:
+    0 22px 45px rgba(10, 10, 15, 0.85),
+    0 0 0 1px rgba(148, 163, 184, 0.1);
+}
+
