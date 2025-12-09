@@ -20,6 +20,9 @@ export const metadata: Metadata = {
     "Control your PC. Any phone. Anywhere in the house. AirPulse turns your phone into a powerful trackpad and media controller for your Windows computer.",
   metadataBase:
     typeof window === "undefined" ? new URL("https://airpulse.app") : undefined,
+  icons: {
+    icon: "/favicon.ico",
+  },
   openGraph: {
     title: "AirPulse - The Universal PC Remote",
     description:
