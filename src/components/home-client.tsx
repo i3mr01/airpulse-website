@@ -18,12 +18,6 @@ import {
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import type { AirPulseBuild } from "@/lib/get-latest-builds";
-
-type Props = {
-  windowsBuild: AirPulseBuild | null;
-  androidBuild: AirPulseBuild | null;
-};
 
 const staggerParent = {
   hidden: { opacity: 0, y: 12 },
@@ -37,7 +31,7 @@ const staggerParent = {
   },
 };
 
-export function HomeClient({ windowsBuild, androidBuild }: Props) {
+export function HomeClient() {
   return (
     <main className="airpulse-shell">
       <div className="relative mx-auto flex min-h-screen max-w-6xl flex-col px-4 pb-20 pt-10 sm:px-6 lg:px-8 lg:pt-12">
@@ -121,7 +115,7 @@ export function HomeClient({ windowsBuild, androidBuild }: Props) {
                     className="soft-shadow min-w-[200px] group relative overflow-hidden"
                   >
                   <a
-                    href={windowsBuild ? `/api/download?platform=windows` : "#"}
+                    href="https://github.com/i3mr01/airpulse-website/releases/download/V1.2/AirPulse-Installer.exe"
                     className="flex items-center justify-center gap-2.5 relative z-10"
                     download
                   >
@@ -151,7 +145,7 @@ export function HomeClient({ windowsBuild, androidBuild }: Props) {
                     className="min-w-[200px] group relative overflow-hidden"
                   >
                   <a
-                    href={androidBuild ? `/api/download?platform=android` : "#"}
+                    href="https://github.com/i3mr01/airpulse-website/releases/download/V1.2/AirPulse.apk"
                     className="flex items-center justify-center gap-2.5 relative z-10"
                     download
                   >
@@ -405,7 +399,7 @@ export function HomeClient({ windowsBuild, androidBuild }: Props) {
                   className="w-full sm:w-auto relative overflow-hidden"
                 >
                   <a
-                    href={windowsBuild ? `/api/download?platform=windows` : "#"}
+                    href="https://github.com/i3mr01/airpulse-website/releases/download/V1.2/AirPulse-Installer.exe"
                     className="flex items-center gap-2.5 relative z-10"
                     download
                   >
@@ -436,7 +430,7 @@ export function HomeClient({ windowsBuild, androidBuild }: Props) {
                   className="w-full sm:w-auto relative overflow-hidden"
                 >
                   <a
-                    href={androidBuild ? `/api/download?platform=android` : "#"}
+                    href="https://github.com/i3mr01/airpulse-website/releases/download/V1.2/AirPulse.apk"
                     className="flex items-center gap-2.5 relative z-10"
                     download
                   >

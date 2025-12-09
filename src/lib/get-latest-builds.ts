@@ -13,14 +13,18 @@ export type AirPulseBuild = {
 };
 
 const WINDOWS_CANDIDATE_DIRS = [
-  // Preferred installer output
+  // Production: public downloads folder
+  "public/downloads",
+  // Local development: installer output
   "../AirPulse/Installer",
-  // Release builds
+  // Local development: release builds
   "../AirPulse/Releases",
 ];
 
 const ANDROID_CANDIDATE_DIRS = [
-  // Preferred installer output
+  // Production: public downloads folder
+  "public/downloads",
+  // Local development: installer output
   "../AirPulse/Installer",
 ];
 

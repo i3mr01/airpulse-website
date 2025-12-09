@@ -35,3 +35,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 
+# downloads (optional - uncomment if you don't want to commit build files)
+# public/downloads/*.exe
+# public/downloads/*.apk
+
