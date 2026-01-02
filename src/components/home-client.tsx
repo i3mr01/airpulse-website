@@ -14,6 +14,7 @@ import {
   QrCode,
   Wifi,
   CheckCircle2,
+  Keyboard,
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -56,12 +57,12 @@ export function HomeClient() {
               <span className="text-zinc-300 font-medium">Windows</span>
             </div>
             <Link
-              href="https://github.com/i3mr01"
+              href="https://www.amrkhaled.dev"
               target="_blank"
               rel="noreferrer"
               className="px-3 py-1.5 rounded-md text-zinc-400 hover:text-airpulse-300 hover:bg-zinc-900/30 transition-all duration-200 font-medium"
             >
-              made by i3mr01
+              made by amrkhaled.dev
             </Link>
           </nav>
         </header>
@@ -89,7 +90,7 @@ export function HomeClient() {
                 <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-zinc-50 leading-[1.1] px-4">
                   Control your PC
                   <br />
-                  <span className="bg-gradient-to-r from-airpulse-400 via-violet-400 to-cyan-400 bg-clip-text text-transparent">
+                  <span className="text-airpulse-400">
                     from anywhere
                   </span>
                 </h1>
@@ -115,9 +116,8 @@ export function HomeClient() {
                     className="soft-shadow min-w-[200px] group relative overflow-hidden"
                   >
                   <a
-                    href="https://github.com/i3mr01/airpulse-website/releases/download/V1.2/AirPulse-Installer.exe"
+                    href="ms-windows-store://pdp/?ProductId=9PMV15F1LCPG"
                     className="flex items-center justify-center gap-2.5 relative z-10"
-                    download
                   >
                     <motion.div
                       animate={{ rotate: [0, 360] }}
@@ -129,7 +129,7 @@ export function HomeClient() {
                     <svg className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
                       <path d="M3 12V6.75l6-1.32v6.48L3 12zm17-9v8.75l-10 .15V5.21L20 3zM3 13l6 .09v6.81l-6-1.15V13zm17 .25V22l-10-1.8v-7.15l10 .2z"/>
                     </svg>
-                    <span className="font-semibold">Download for Windows</span>
+                    <span className="font-semibold">Get from Microsoft Store</span>
                   </a>
                   </Button>
                 </motion.div>
@@ -284,6 +284,21 @@ export function HomeClient() {
               title="Volume Master"
               body="Adjust your PC's volume instantly. No need to get up from the couch or bed."
             />
+            <FeatureCard
+              icon={<Keyboard className="h-5 w-5" />}
+              title="Smart Keyboard"
+              body="Automatically shows keyboard when you focus text fields. Seamless typing experience powered by FocusWatcher."
+            />
+            <FeatureCard
+              icon={<MonitorSmartphone className="h-5 w-5" />}
+              title="Modern WinUI 3"
+              body="Beautiful Mica backdrop, NavigationView, and Windows 11 design language. A complete redesign for the modern Windows experience."
+            />
+            <FeatureCard
+              icon={<Globe className="h-5 w-5" />}
+              title="File Sharing"
+              body="Transfer files between your PC and phone seamlessly. Coming soon in the next update."
+            />
           </div>
         </section>
 
@@ -367,88 +382,148 @@ export function HomeClient() {
         </section>
 
         {/* Downloads */}
-        <motion.section
+        <section
           id="download"
-          className="mt-20 rounded-3xl border border-airpulse-500/30 bg-gradient-to-br from-airpulse-500/20 via-violet-500/10 to-cyan-500/10 p-6 sm:mt-24 sm:p-8 backdrop-blur-sm shadow-2xl shadow-airpulse-500/10 group"
-          whileHover={{ 
-            scale: 1.01,
-            borderColor: "rgba(139, 92, 246, 0.5)",
-          }}
-          transition={{ duration: 0.3 }}
+          className="mt-20 sm:mt-24 space-y-8 border-t border-white/5 pt-10 sm:pt-12"
         >
-          <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
-            <div className="space-y-3">
-              <h3 className="text-lg font-semibold tracking-tight text-zinc-50">
-                Get AirPulse
-              </h3>
-              <p className="max-w-md text-sm text-zinc-300">
-                Download the Windows Server to get started, or grab the Android app for the premium experience.
-              </p>
-            </div>
+          {/* Section Header */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            className="space-y-3"
+          >
+            <h2 className="text-xl font-semibold tracking-tight text-zinc-50 sm:text-2xl">
+              Download AirPulse
+            </h2>
+            <p className="max-w-xl text-sm text-zinc-400">
+              Choose your platform and start controlling your PC in seconds
+            </p>
+          </motion.div>
 
-            <div className="flex flex-col gap-3 sm:flex-row">
-              <motion.div
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.98 }}
-                transition={{ duration: 0.2 }}
-                className="group/btn"
-              >
-                <Button
-                  asChild
-                  size="default"
-                  className="w-full sm:w-auto relative overflow-hidden"
-                >
-                  <a
-                    href="https://github.com/i3mr01/airpulse-website/releases/download/V1.2/AirPulse-Installer.exe"
-                    className="flex items-center gap-2.5 relative z-10"
-                    download
+          {/* Download Cards */}
+          <div className="grid gap-6 md:grid-cols-2 max-w-5xl mx-auto">
+            {/* Windows Server Card */}
+            <motion.article
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ 
+                y: -4,
+                scale: 1.01,
+                transition: { duration: 0.3, ease: "easeOut" }
+              }}
+              viewport={{ once: true, amount: 0.4 }}
+              transition={{ duration: 0.45, ease: "easeOut" }}
+              className="group relative overflow-hidden rounded-xl border border-white/10 bg-gradient-to-br from-zinc-950/80 via-zinc-900/40 to-transparent p-5 backdrop-blur-sm shadow-lg shadow-black/20 group-hover:border-white/30 group-hover:shadow-2xl group-hover:shadow-black/40 transition-all duration-500 ease-out flex flex-col"
+            >
+
+              {/* Shimmer sweep */}
+              <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out bg-gradient-to-r from-transparent via-white/5 to-transparent" />
+              
+              <div className="relative space-y-4 flex flex-col flex-1">
+                {/* Header */}
+                <div className="flex items-start justify-between gap-4">
+                  <div className="flex items-center gap-3">
+                    <div className="rounded-lg p-2.5 bg-gradient-to-br from-airpulse-500/20 to-violet-500/20 border border-airpulse-400/20 text-airpulse-300 group-hover:text-cyan-300 transition-colors shadow-md">
+                      <svg className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M3 12V6.75l6-1.32v6.48L3 12zm17-9v8.75l-10 .15V5.21L20 3zM3 13l6 .09v6.81l-6-1.15V13zm17 .25V22l-10-1.8v-7.15l10 .2z"/>
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 className="text-base font-bold text-zinc-50 leading-tight group-hover:text-white transition-colors duration-300">Windows Server</h3>
+                      <p className="text-xs text-zinc-400 leading-relaxed">v2.0 • WinUI 3 • Windows 10/11</p>
+                    </div>
+                  </div>
+                  <div className="rounded-lg bg-red-500/10 border border-red-500/20 px-2.5 py-1">
+                    <span className="text-[10px] font-semibold text-red-300 uppercase tracking-wider">Required</span>
+                  </div>
+                </div>
+
+                {/* Description */}
+                <p className="text-xs text-zinc-300 leading-relaxed group-hover:text-zinc-200 transition-colors duration-300 flex-1">
+                  The essential server that runs on your PC. Built with WinUI 3 for a modern Windows 11 experience featuring Mica backdrop, NavigationView, and smart features like auto-keyboard detection.
+                </p>
+
+                {/* Download Button */}
+                <div className="mt-auto pt-2">
+                  <Button
+                    asChild
+                    size="lg"
+                    className="w-full"
                   >
-                    <motion.div
-                      animate={{ rotate: [0, 360] }}
-                      transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                      className="absolute inset-0 opacity-0 group-hover/btn:opacity-100"
+                    <a
+                      href="ms-windows-store://pdp/?ProductId=9PMV15F1LCPG"
+                      className="flex items-center justify-center gap-2.5"
                     >
-                      <div className="absolute inset-0 bg-gradient-to-r from-airpulse-500/20 via-violet-500/20 to-cyan-500/20 blur-xl" />
-                    </motion.div>
-                    <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M3 12V6.75l6-1.32v6.48L3 12zm17-9v8.75l-10 .15V5.21L20 3zM3 13l6 .09v6.81l-6-1.15V13zm17 .25V22l-10-1.8v-7.15l10 .2z"/>
-                    </svg>
-                    <span className="font-semibold">Download Windows Server</span>
-                  </a>
-                </Button>
-              </motion.div>
-              <motion.div
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.98 }}
-                transition={{ duration: 0.2 }}
-                className="group/btn"
-              >
-                <Button
-                  asChild
-                  size="default"
-                  variant="secondary"
-                  className="w-full sm:w-auto relative overflow-hidden"
-                >
-                  <a
-                    href="https://github.com/i3mr01/airpulse-website/releases/download/V1.2/AirPulse.apk"
-                    className="flex items-center gap-2.5 relative z-10"
-                    download
+                      <Download className="h-4 w-4" />
+                      <span className="font-semibold">Get from Microsoft Store</span>
+                    </a>
+                  </Button>
+                </div>
+              </div>
+            </motion.article>
+
+            {/* Android App Card */}
+            <motion.article
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ 
+                y: -4,
+                scale: 1.01,
+                transition: { duration: 0.3, ease: "easeOut" }
+              }}
+              viewport={{ once: true, amount: 0.4 }}
+              transition={{ duration: 0.45, ease: "easeOut", delay: 0.1 }}
+              className="group relative overflow-hidden rounded-xl border border-white/10 bg-gradient-to-br from-zinc-950/80 via-zinc-900/40 to-transparent p-5 backdrop-blur-sm shadow-lg shadow-black/20 group-hover:border-white/30 group-hover:shadow-2xl group-hover:shadow-black/40 transition-all duration-500 ease-out flex flex-col"
+            >
+              {/* Shimmer sweep */}
+              <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out bg-gradient-to-r from-transparent via-white/5 to-transparent" />
+              
+              <div className="relative space-y-4 flex flex-col flex-1">
+                {/* Header */}
+                <div className="flex items-start justify-between gap-4">
+                  <div className="flex items-center gap-3">
+                    <div className="rounded-lg p-2.5 bg-gradient-to-br from-emerald-500/20 to-green-500/20 border border-emerald-400/20 text-emerald-300 group-hover:text-teal-300 transition-colors shadow-md">
+                      <Image src="/android-icon.png" alt="Android" width={20} height={20} className="h-5 w-5" />
+                    </div>
+                    <div>
+                      <h3 className="text-base font-bold text-zinc-50 leading-tight group-hover:text-white transition-colors duration-300">Android App</h3>
+                      <p className="text-xs text-zinc-400 leading-relaxed">v1.2 • 8MB • Android 7+</p>
+                    </div>
+                  </div>
+                  <div className="rounded-lg bg-amber-500/10 border border-amber-500/20 px-2.5 py-1">
+                    <span className="text-[10px] font-semibold text-amber-300 uppercase tracking-wider">Premium</span>
+                  </div>
+                </div>
+
+                {/* Description */}
+                <p className="text-xs text-zinc-300 leading-relaxed group-hover:text-zinc-200 transition-colors duration-300 flex-1">
+                  Premium Android experience with auto-reconnect, hardware button support, and a beautiful now-playing interface.
+                </p>
+
+                {/* Download Button */}
+                <div className="mt-auto pt-2">
+                  <Button
+                    asChild
+                    size="lg"
+                    variant="secondary"
+                    className="w-full"
                   >
-                    <motion.div
-                      animate={{ rotate: [0, -360] }}
-                      transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                      className="absolute inset-0 opacity-0 group-hover/btn:opacity-100"
+                    <a
+                      href="https://github.com/i3mr01/airpulse-website/releases/download/V1.2/AirPulse.apk"
+                      className="flex items-center justify-center gap-2.5"
+                      download
                     >
-                      <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/20 via-green-500/20 to-teal-500/20 blur-xl" />
-                    </motion.div>
-                    <Image src="/android-icon.png" alt="Android" width={16} height={16} className="h-4 w-4" />
-                    <span className="font-semibold">Get Android App</span>
-                  </a>
-                </Button>
-              </motion.div>
-            </div>
+                      <Download className="h-4 w-4" />
+                      <span className="font-semibold">Get Android App</span>
+                    </a>
+                  </Button>
+                </div>
+              </div>
+            </motion.article>
           </div>
-        </motion.section>
+        </section>
       </div>
     </main>
   );
@@ -525,26 +600,15 @@ function MethodCard({
       <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out bg-gradient-to-r from-transparent via-white/5 to-transparent" />
       
       <div className="relative space-y-4">
-        <motion.div 
-          className="flex items-start gap-4"
-          whileHover={{ x: 4 }}
-          transition={{ duration: 0.3 }}
-        >
-          <motion.div 
-            className={`rounded-xl p-3 border ${style.iconBg} shadow-md`}
-            whileHover={{ 
-              scale: 1.1,
-              rotate: [0, -5, 5, 0],
-            }}
-            transition={{ duration: 0.4 }}
-          >
+        <div className="flex items-start gap-4">
+          <div className={`rounded-xl p-3 border ${style.iconBg} shadow-md`}>
             {icon}
-          </motion.div>
+          </div>
           <div className="flex-1">
             <h3 className="text-base font-bold text-zinc-50 group-hover:text-white transition-colors duration-300">{title}</h3>
             <p className="mt-1.5 text-xs text-zinc-300 font-medium group-hover:text-zinc-200 transition-colors duration-300">{subtitle}</p>
           </div>
-        </motion.div>
+        </div>
         <ul className="space-y-2.5">
           {features.map((feature, idx) => (
             <motion.li 
@@ -614,22 +678,11 @@ function FeatureCard({ icon, title, body }: FeatureCardProps) {
       <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out bg-gradient-to-r from-transparent via-white/5 to-transparent" />
       
       <div className="relative space-y-3">
-        <motion.div 
-          className="flex items-center gap-3"
-          whileHover={{ x: 3 }}
-          transition={{ duration: 0.3 }}
-        >
-          <motion.div 
-            className="rounded-lg p-2.5 bg-gradient-to-br from-airpulse-500/20 to-violet-500/20 border border-airpulse-400/20 text-airpulse-300 group-hover:text-cyan-300 transition-colors shadow-md"
-            whileHover={{ 
-              scale: 1.15,
-              rotate: [0, -10, 10, 0],
-            }}
-            transition={{ duration: 0.5 }}
-          >
+        <div className="flex items-center gap-3">
+          <div className="rounded-lg p-2.5 bg-gradient-to-br from-airpulse-500/20 to-violet-500/20 border border-airpulse-400/20 text-airpulse-300 group-hover:text-cyan-300 transition-colors shadow-md">
             {icon}
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
         <div className="space-y-1.5">
           <h3 className="text-sm font-bold text-zinc-50 leading-tight group-hover:text-white transition-colors duration-300">{title}</h3>
           <p className="text-xs text-zinc-300 leading-relaxed group-hover:text-zinc-200 transition-colors duration-300">{body}</p>
@@ -704,7 +757,7 @@ function StepCard({ step, title, body, icon, position = "left" }: StepCardProps)
             <div className={`flex h-10 w-10 items-center justify-center rounded-xl ${colors.stepBg} text-base font-bold shadow-lg border transition-transform duration-300 group-hover:scale-105`}>
               {step}
             </div>
-            <div className={`${colors.iconColor} transition-all duration-300 group-hover:scale-110`}>
+            <div className={colors.iconColor}>
               {icon}
             </div>
           </div>
